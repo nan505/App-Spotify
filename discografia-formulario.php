@@ -8,10 +8,10 @@
 </head>
 <body>
     <section class="d-flex flex-column align-items-center">
-        <h1 class="text-primary-emphasis fs-2">Cadastro de Discografia</h1>
+        <h1 class="text-primary-emphasis fs-2 mt-2">Cadastro de Discografia</h1>
         <br>
         <div class="card p-4">
-            <form method="post">
+            <form action="discografia-salvar.php" method="post">
                 <label>Artista</label><br>
                 <input type="text" name="artista" required>
 
@@ -45,5 +45,9 @@
             </form>
         </div>
     </section>
+
+    <footer class="d-flex flex-column justify-content-center align-items-center text-center bg-dark mt-3">
+        <p class="text-light pt-3">Feito por: Nan Santos</p>
+    </footer>
 </body>
 </html>

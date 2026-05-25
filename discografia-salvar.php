@@ -1,10 +1,10 @@
 <?php
 
-$artista = htmlspecialchars($_POST['artista']);
+$artista = $_POST['artista'];
 $nome = $_POST['nome'];
 $ano = $_POST['ano'];
 $tipo = $_POST['tipo'];
-$foto = urlencode($_POST['foto']);
+$foto = $_POST['foto'];
 
 echo "Artista: $artista - Nome: $nome - Ano de lançamento: $ano - Tipo: $tipo - URL da Capa: $foto";
 
@@ -14,9 +14,8 @@ if(!$conn){
     die("<h3>Erro</h3>" . mysqli_connect_error() );
 }
 
-$sqlInserir = "INSERT INTO tb_discografia(artista, nome, ano, tipo, foto) VALUES('$artista', '{$nome}', $ano, '$tipo', '$foto')";
-
-$resultado = mysqli_query($conn, $sqlInserir);
+$resultado = mysqli_execute_query($conn, "INSERT INTO tb_discografia(artista, nome, ano, tipo, foto) VALUES(?, ?, ?, ?, ?)", 
+[$artista, $nome, $ano, $tipo, $foto]);
 
 if($resultado){
     echo "Cadastrado com sucesso!";

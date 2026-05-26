@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
+<?php
+
+$titulo_da_pagina = "Cadastro de discografia";
+include "inc-cabecalho.php";
+
+?>
+
 <body>
     <main class="container">
         <?php include "inc-menu.php"; ?>
@@ -50,8 +49,6 @@
         </section>
     </main>
 
-    <footer class="d-flex flex-column justify-content-center align-items-center text-center bg-dark mt-3">
-        <p class="text-light pt-3">Feito por: Nan Santos</p>
-    </footer>
+    <?php include "inc-rodape.php"; ?>
 </body>
 </html>

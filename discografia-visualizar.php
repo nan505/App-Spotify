@@ -17,8 +17,9 @@ include "inc-cabecalho.php";
 
         include "inc-conexao.php";
 
-        $id = $_GET['id'];
+        $id = $_GET['id'] ?? 0;
         $artista = $nome = $ano = $tipo = $foto = "";
+        $i = 0;
 
         $sql = "";
 
@@ -45,19 +46,35 @@ include "inc-cabecalho.php";
                 $tipo = 'Single';
             }
 
+            if($i % 4 == 0){
+                echo "<div class='row'>";
+            }
+
             echo "
-                <div class='card' style='width: 18rem;'>
-                    <img src='$foto' class='card-img-top' alt='$nome'>
-                    <div class='card-body'>
-                        <h5 class='card-title'>$nome</h5>
-                        <p class='card-text'>Artista: $artista</p>
+                <div class='col-3'>
+                    <div class='card' style='width: 16rem;'>
+                        <img src='$foto' class='card-img-top' alt='$nome'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>$nome</h5>
+                            <p class='card-text'>Artista: $artista</p>
+                        </div>
+                        <ul class='list-group list-group-flush'>
+                            <li class='list-group-item'>Categoria: $tipo</li>
+                            <li class='list-group-item'>Ano de lançamento: $ano</li>
+                        </ul>
                     </div>
-                    <ul class='list-group list-group-flush'>
-                        <li class='list-group-item'>Categoria: $tipo</li>
-                        <li class='list-group-item'>Ano de lançamento: $ano</li>
-                    </ul>
                 </div>
             ";
+
+            if( ($i + 1) % 4 == 0){
+                echo "</div>";
+            }
+
+            $i++;
+        }
+
+        if($i % 4 != 0){
+            echo "</div>";
         }
 
         ?>

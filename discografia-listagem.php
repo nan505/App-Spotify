@@ -7,18 +7,26 @@ include "inc-cabecalho.php";
 <body>
     <main class="container">
         <?php include "inc-menu.php"; ?>
-        <h1>Listagem de Discografias</h1>
+        <h1 class="mb-3 text-dark">Listagem de Discografias</h1>
+
+        <div class="row mb-3">
+            <div class="col">
+                <a href="discografia-formulario.php" class="btn btn-success">Nova discografia</a>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col">
-                <table class="table">
-                    <tr>
-                        <th>ID</th>
-                        <th>Artista</th>
-                        <th>Nome</th>
-                        <th>Ano</th>
-                        <th>Tipo</th>
-                    </tr>
+                <table class="table table-striped table-hover border">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Artista</th>
+                            <th>Nome</th>
+                            <th>Ano</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
                     <?php
 
                     include "inc-conexao.php";
@@ -31,9 +39,14 @@ include "inc-cabecalho.php";
 
                         echo "<td> {$linha_resultado['id']} </td>";
                         echo "<td> {$linha_resultado['artista']} </td>";
-                        echo "<td> {$linha_resultado['nome']} </td>";
+                        echo "<td> <a href='discografia-visualizar.php?id={$linha_resultado['id']}'> {$linha_resultado['nome']} </a> </td>";
                         echo "<td> {$linha_resultado['ano']} </td>";
-                        echo "<td> {$linha_resultado['tipo']} </td>";
+                        if($linha_resultado['tipo'] == 'album'){
+                            echo "<td> Álbum </td>";
+                        }
+                        else{
+                            echo "<td> Single </td>";
+                        }
 
                         echo '</tr>';
                     }

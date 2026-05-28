@@ -1,7 +1,17 @@
-<nav>
-    <a href="admin.php">Admin</a>
-    <a href="discografia-listagem.php">Discografia</a>
-    <a href="artista-formulario.php">Artista</a>
-    <a href="musica-formulario.php">Músicas</a>
-    <a href="gravadora-formulario.php">Gravadoras</a>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><i class="bi bi-spotify"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="admin.php">Admin</a>
+        <a class="nav-link" href="discografia-listagem.php">Discografia</a>
+        <a class="nav-link" href="artista-formulario.php">Artista</a>
+        <a class="nav-link" href="musica-formulario.php">Músicas</a>
+        <a class="nav-link" href="gravadora-formulario.php">Gravadoras</a>
+      </div>
+    </div>
+  </div>
 </nav>

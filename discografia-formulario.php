@@ -1,6 +1,6 @@
 <?php
 
-$titulo_da_pagina = "Cadastro de discografia";
+$titulo_da_pagina = "Cadastro de Discografia";
 include "inc-cabecalho.php";
 
 ?>
@@ -14,22 +14,22 @@ include "inc-cabecalho.php";
             <br>
             <div class="card p-4">
                 <form action="discografia-salvar.php" method="post">
-                    <label>Artista</label><br>
+                    <label>Artista:</label><br>
                     <input type="text" name="artista" required>
 
                     <br>
 
-                    <label>Nome do álbum</label><br>
+                    <label>Nome do disco:</label><br>
                     <input type="text" name="nome" required>
 
                     <br>
 
-                    <label>Ano de lançamento</label><br>
+                    <label>Ano de lançamento:</label><br>
                     <input type="number" name="ano" required>
 
                     <br>
 
-                    <label>Tipo</label><br>
+                    <label>Tipo:</label><br>
                     <select name="tipo" required>
                         <option value="album">Álbum</option>
                         <option value="single">Single</option>
@@ -37,7 +37,7 @@ include "inc-cabecalho.php";
 
                     <br>
 
-                    <label>Foto</label><br>
+                    <label>URL da imagem de capa:</label><br>
                     <input type="text" name="foto" required>
 
                     <br><br>

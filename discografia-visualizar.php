@@ -10,27 +10,36 @@ include "inc-cabecalho.php";
     </header>
 
     <main class="container">
-        <h1>Visualizar Discografia</h1>
-
-
         <?php
 
         include "inc-conexao.php";
 
         $id = $_GET['id'] ?? 0;
+        $artista_get = $_GET['artista'] ?? "";
+
         $artista = $nome = $ano = $tipo = $foto = "";
         $i = 0;
 
         $sql = "";
 
-        if($id > 0){
+        if($id > 0 && $artista_get == ""){
             $sql = "SELECT * FROM tb_discografia WHERE id = $id";
         }
+        else if($id <= 0 && $artista_get == ""){
+            $sql = "SELECT * FROM tb_discografia ORDER BY artista, ano DESC";
+        }
         else{
-            $sql = "SELECT * FROM tb_discografia ORDER BY nome, ano";
+            $sql = "SELECT * FROM tb_discografia WHERE artista = '$artista_get' ORDER BY ano DESC";
         }
 
         $resultado = mysqli_query($conn, $sql);
+
+        if($artista_get == ""){
+            echo "<h1>Visualizar Discografia</h1>";
+        }
+        else{
+            echo "<h1>Discografia de: $artista_get</h1>";
+        }
 
         while($linha = mysqli_fetch_assoc($resultado) ){
             $artista = $linha['artista'];
@@ -47,7 +56,7 @@ include "inc-cabecalho.php";
             }
 
             if($i % 4 == 0){
-                echo "<div class='row'>";
+                echo "<div class='row mb-4'>";
             }
 
             echo "
@@ -56,10 +65,10 @@ include "inc-cabecalho.php";
                         <img src='$foto' class='card-img-top' alt='$nome'>
                         <div class='card-body'>
                             <h5 class='card-title'>$nome</h5>
-                            <p class='card-text'>Artista: $artista</p>
+                            <p class='card-text'>Artista: <a href='discografia-visualizar.php?artista=$artista'>$artista</a></p>
                         </div>
                         <ul class='list-group list-group-flush'>
-                            <li class='list-group-item'>Categoria: $tipo</li>
+                            <li class='list-group-item bg-light-subtle'>Categoria: $tipo</li>
                             <li class='list-group-item'>Ano de lançamento: $ano</li>
                         </ul>
                     </div>
